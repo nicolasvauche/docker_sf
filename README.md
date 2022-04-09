@@ -28,6 +28,8 @@ Services complémentaires : PHPMyAdmin / MailDev
 Toutes les commandes sont exécutées dans le terminal de votre conteneur principal :  
 - `php bin/console […]`  
 - `git […]`  
+- `npm […]`  
+- `yarn […]`  
 
 **Note : supprimer le fichier delete-me.txt avant d'initialiser un projet SF**  
 `rm delete-me.txt`  
