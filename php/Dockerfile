@@ -1,5 +1,10 @@
 FROM php:8.0-fpm
 
+ARG GIT_USEREMAIL
+ARG GIT_USERNAME
+ENV GIT_USEREMAIL $GIT_USEREMAIL
+ENV GIT_USERNAME $GIT_USERNAME
+
 RUN apt update \
     && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip \
     && docker-php-ext-install intl opcache pdo pdo_mysql \
