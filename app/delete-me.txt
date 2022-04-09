@@ -1,0 +1,2 @@
+Please delete this file before initializing your project.
+Its only goal is to keep the folder 'app' into the repository ;)
