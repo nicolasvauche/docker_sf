@@ -20,3 +20,7 @@ Services complémentaires : PHPMyAdmin / MailDev
 
 6. Tester le Symfony CLI :  
 `symfony check:requirements`  
+
+7. Initialiser un nouveau projet Symfony :  
+- Latest : `symfony new --full .`  
+- LTS : `composer create-project symfony/skeleton:"^5.4" .`  
