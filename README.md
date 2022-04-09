@@ -1,5 +1,5 @@
 # Docker & Symfony  
-Installation d'un environnement NginX / MySQL / PHP8 / Symfony avec Docker.  
+Installation d'un environnement NginX / MySQL / PHP8 / NodeJS / Yarn / Symfony CLI avec Docker.  
 Services complémentaires : PHPMyAdmin / MailDev  
 
 ---  
