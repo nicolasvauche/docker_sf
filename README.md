@@ -22,5 +22,6 @@ Services complémentaires : PHPMyAdmin / MailDev
 `symfony check:requirements`  
 
 7. Initialiser un nouveau projet Symfony :  
+**Note : supprimer le fichier delete-me.txt avant d'initialiser un projet SF**  
 - Latest : `symfony new --full .`  
 - LTS : `composer create-project symfony/skeleton:"^5.4" .`  
