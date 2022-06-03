@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:latest-fpm
 
 ARG GIT_USEREMAIL
 ARG GIT_USERNAME
@@ -8,7 +8,7 @@ ENV GIT_USERNAME $GIT_USERNAME
 ENV NODE_VERSION=16
 
 RUN apt update \
-    && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip nano \
+    && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip nano vim \
     && docker-php-ext-install intl opcache pdo pdo_mysql \
     && pecl install apcu \
     && docker-php-ext-enable apcu \
