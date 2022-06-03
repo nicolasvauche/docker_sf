@@ -1,4 +1,4 @@
-FROM php:latest-fpm
+FROM php:8.1-fpm
 
 ARG GIT_USEREMAIL
 ARG GIT_USERNAME
