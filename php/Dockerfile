@@ -16,13 +16,16 @@ RUN apt update \
     && docker-php-ext-configure zip \
     && docker-php-ext-install zip
 
-WORKDIR /var/www/docker_sf
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
-RUN git config --global user.email "${GIT_USEREMAIL}" \ 
+
+RUN curl -sS 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | bash
+RUN apt install symfony-cli
+
+RUN git config --global user.email "${GIT_USEREMAIL}" \
     && git config --global user.name "${GIT_USERNAME}"
 
 RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
@@ -30,3 +33,7 @@ RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
     && apt-get update \
     && apt-get install -qq -y build-essential nodejs yarn
+
+COPY php.ini /usr/local/etc/php/php.ini
+
+WORKDIR /var/www/docker_sf
