@@ -22,6 +22,7 @@ services:
       args:
         GIT_USEREMAIL: ${GIT_USEREMAIL}
         GIT_USERNAME: ${GIT_USERNAME}
+    image: "docker_sf_php"
     container_name: "${DB_NAME}_php"
     ports:
       - "${PHP_PORT}:9000"

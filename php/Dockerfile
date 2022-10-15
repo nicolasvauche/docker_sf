@@ -36,4 +36,6 @@ RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
 
 COPY php.ini /usr/local/etc/php/php.ini
 
+COPY .bashrc /root/.bashrc
+
 WORKDIR /var/www/docker_sf
