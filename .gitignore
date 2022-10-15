@@ -1,6 +1,6 @@
 .DS_Store
-/.vscode/
-/.idea/
+/.vscode
+/.idea
 /.env
-/app/var/
-/app/vendor/
+/app/*
+!/app/delete-me.txt
