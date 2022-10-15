@@ -5,7 +5,7 @@ ARG GIT_USERNAME
 ENV GIT_USEREMAIL $GIT_USEREMAIL
 ENV GIT_USERNAME $GIT_USERNAME
 
-ENV NODE_VERSION=16
+ENV NODE_VERSION=18
 
 RUN apt update \
     && apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip nano vim \
@@ -31,5 +31,7 @@ RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
     && apt-get install -qq -y build-essential nodejs yarn
 
 COPY php.ini /usr/local/etc/php/php.ini
+
+COPY .bashrc /root/.bashrc
 
 WORKDIR /var/www/docker_sf

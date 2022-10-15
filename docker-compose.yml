@@ -2,8 +2,8 @@ version: "3.8"
 
 services:
   db:
-    image: mysql:latest
     container_name: "${DB_NAME}_mysql"
+    image: mysql:latest
     command:
       [
         "--character-set-server=utf8mb4",
@@ -22,12 +22,13 @@ services:
     restart: always
 
   php:
+    container_name: "${DB_NAME}_php"
     build:
       context: ./php
       args:
         GIT_USEREMAIL: ${GIT_USEREMAIL}
         GIT_USERNAME: ${GIT_USERNAME}
-    container_name: "${DB_NAME}_php"
+    image: "docker_sf_php"
     ports:
       - "${PHP_PORT}:9000"
     volumes:
@@ -36,8 +37,8 @@ services:
       - db
 
   nginx:
-    image: nginx:stable-alpine
     container_name: "${DB_NAME}_nginx"
+    image: nginx:stable-alpine
     ports:
       - "${HTTP_PORT}:80"
     volumes:
@@ -48,8 +49,8 @@ services:
       - db
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
     container_name: "${DB_NAME}_phpmyadmin"
+    image: phpmyadmin/phpmyadmin:latest
     links:
       - db
     depends_on:
@@ -65,8 +66,8 @@ services:
     restart: always
 
   maildev:
-    image: maildev/maildev
     container_name: "${DB_NAME}_maildev"
+    image: maildev/maildev
     command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
     ports:
       - "${MAILDEV_PORT}:80"
