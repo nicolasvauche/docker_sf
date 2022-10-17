@@ -5,6 +5,7 @@ ARG GIT_USERNAME
 ENV GIT_USEREMAIL $GIT_USEREMAIL
 ENV GIT_USERNAME $GIT_USERNAME
 
+ARG CACHEBUST=1
 ENV NODE_VERSION=16
 
 RUN apt update \
@@ -15,7 +16,6 @@ RUN apt update \
     && docker-php-ext-configure zip \
     && docker-php-ext-install zip
 
-#--- PHP GD (GraphicDraw)
 RUN apt-get update && \
     apt-get install -y libfreetype6-dev libjpeg62-turbo-dev libpng-dev --no-install-recommends --fix-missing\
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/\
@@ -36,7 +36,6 @@ RUN curl -sL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
     && apt-get install -qq -y build-essential nodejs yarn
 
 COPY php.ini /usr/local/etc/php/php.ini
-
 COPY .bashrc /root/.bashrc
 
 WORKDIR /var/www/docker_sf
