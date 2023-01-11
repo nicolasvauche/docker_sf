@@ -28,6 +28,8 @@ services:
       - "${PHP_PORT}:9000"
     volumes:
       - ./app:/var/www/docker_sf
+    extra_hosts:
+      - host.docker.internal:host-gateway
     depends_on:
       - db
 
