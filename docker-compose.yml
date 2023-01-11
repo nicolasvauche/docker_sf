@@ -28,11 +28,13 @@ services:
       args:
         GIT_USEREMAIL: ${GIT_USEREMAIL}
         GIT_USERNAME: ${GIT_USERNAME}
-    image: "docker_sf_php"
+    image: "docker_${DB_NAME}_php"
     ports:
       - "${PHP_PORT}:9000"
     volumes:
       - ./app:/var/www/docker_sf
+    extra_hosts:
+      - host.docker.internal:host-gateway
     depends_on:
       - db
 
