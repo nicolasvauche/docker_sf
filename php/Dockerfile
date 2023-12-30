@@ -46,4 +46,4 @@ COPY php.ini /usr/local/etc/php/php.ini
 
 COPY .bashrc /root/.bashrc
 
-WORKDIR /var/www/docker_sf
+WORKDIR /var/www/app
